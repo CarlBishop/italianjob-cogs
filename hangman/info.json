@@ -1,10 +1,10 @@
 {
     "author" : ["Flame442"],
-    "install_msg" : "Thanks for installing hangman. Use `[p]hangman` to play.\nThis cog comes with bundled data.",
+    "install_msg" : "Hai installato Impiccato. Usa `[p]hangman` per giocare.\nQuesto cog ha già dei dati delle domande.",
     "name" : "Hangman",
-    "short" : "Play hangman with the bot.",
+    "short" : "Gioca all'impiccato con il bot.",
     "requirements" : [],
-    "description" : "Play hangman, guessing a random word from the bot. By default, a list of english nouns is used when picking the word, but a custom list can be configured by the bot owner. Run [p]hangman to play!",
+    "description" : "Gioca all'impiccato, indovinando una parola a caso dal bot. Per impostazione predefinita, quando si sceglie la parola viene utilizzato un elenco di sostantivi italiani, ma il proprietario del bot può configurare un elenco personalizzato. Esegui [p]impiccato per giocare!",
     "tags" : ["fun", "games", "hangman"],
     "min_bot_version": "3.5.0.dev1",
     "min_python_version": [3, 6, 0],

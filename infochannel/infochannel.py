@@ -70,18 +70,18 @@ class InfoChannel(Cog):
 
         # self. so I can get the keys from this later
         self.default_channel_names = {
-            "members": "👤 Members: {count}",
-            "humans": "👤 Humans: {count}",
+            "members": "👤 Membri: {count}",
+            "humans": "👤 Umani: {count}",
             "boosters": "💎 Boosters: {count}",
             "bots": "🤖 Bots: {count}",
-            "roles": "👔 Roles: {count}",
-            "channels": "🔧 Channels: {count}",
+            "roles": "👔 Ruoli: {count}",
+            "channels": "🔧 Canali: {count}",
             "online": "Online: {count}",
             "offline": "Offline: {count}",
             "emojis": "🥳 Emojis: {count}",
-            "news_channels": "📰 News Channels: {count}",
+            "news_channels": "📰 Canali News: {count}",
             "stage_channels": "🎤 Stage Channels: {count}",
-            "voice_channels": "🔊 Voice Channels: {count}",
+            "voice_channels": "🔊 Canali Vocali: {count}",
             "server_boost_tier": "🥇 Server Boost Tier: {count}",
             "timezones": "⏰ Timezone: {count}",
         }

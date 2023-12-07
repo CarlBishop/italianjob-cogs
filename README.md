@@ -5,7 +5,6 @@ Cog Function
 | Name | Status | Description (Click to see full status)
 | --- | --- | --- |
 | infochannel | **Beta** | <details><summary>Create a channel to display server info</summary>Due to rate limits, this does not update as often as it once did</details> |
-| werewolf | **Pre-Alpha** | <details><summary>Play the classic party game Werewolf within discord</summary>Another massive project currently being developed, will be fully customizable</details> |
 
 # Installation
 ### Recommended - Built-in Downloader

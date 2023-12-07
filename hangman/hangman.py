@@ -9,7 +9,7 @@ import asyncio, os
 
 
 class Hangman(commands.Cog):
-	"""Play hangman with the bot."""
+	"""Gioca all'impiccato con il  bot."""
 	def __init__(self, bot):
 		self.bot = bot
 		self.config = Config.get_conf(self, identifier=7345167902)
@@ -97,7 +97,7 @@ class Hangman(commands.Cog):
 
 	@commands.command()
 	async def hangman(self, ctx):
-		"""Play hangman with the bot."""
+		"""Gioca all'impiccato con il  bot."""
 		if ctx.guild is None: #default vars in pms
 			fp = str(bundled_data_path(self) / 'words.txt')
 			doEdit = False #cant delete messages in pms

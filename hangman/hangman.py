@@ -126,16 +126,16 @@ class Hangman(commands.Cog):
 			p = self._get_message(word, guessed)
 			p = f'```{self.man[fails]}\n{p}```'
 			if err == 1:
-				p += 'You already guessed that letter.\n'
+				p += 'Hai già scelto questa lettera.\n'
 			if boardmsg is None or not doEdit:
-				boardmsg = await ctx.send(p+'Guess:')
+				boardmsg = await ctx.send(p+'Indovina:')
 			else:
-				await boardmsg.edit(content=str(p+'Guess:'))
+				await boardmsg.edit(content=str(p+'Indovina:'))
 			try:
 				umsg = await self.bot.wait_for('message', check=check, timeout=60)
 			except asyncio.TimeoutError:
 				return await ctx.send(
-					f'Canceling selection. You took too long.\nThe word was {word}.'
+					f'Annullamento della selezione. Ci hai messo troppo tempo.\nLa parola er {word}.'
 				)
 			t = umsg.content.lower()
 			if doEdit:
@@ -153,7 +153,7 @@ class Hangman(commands.Cog):
 				fails += 1
 				if fails == 6: #too many fails
 					p = self._get_message(word, guessed)
-					p = f'```{self.man[fails]}\n{p}```Game Over\nThe word was {word}.'
+					p = f'```{self.man[fails]}\n{p}```Game Over\nLa parola era {word}.'
 					if doEdit:
 						await boardmsg.edit(content=p)
 					else:
@@ -163,7 +163,7 @@ class Hangman(commands.Cog):
 			#guessed entire word
 			if not (set('abcdefghijklmnopqrstuvwxyz') & set(word)) - set(guessed):
 				p = self._get_message(word, guessed)
-				p = f'```{self.man[fails]}\n{p}```You win!\nThe word was {word}.'
+				p = f'```{self.man[fails]}\n{p}```Hai vinto!\nLa parola era {word}.'
 				if doEdit:
 					await boardmsg.edit(content=p)
 				else:

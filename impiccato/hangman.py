@@ -8,7 +8,7 @@ from random import randint
 import asyncio, os
 
 
-class Hangman(commands.Cog):
+class Impiccato(commands.Cog):
 	"""Gioca all'impiccato con il  bot."""
 	def __init__(self, bot):
 		self.bot = bot
@@ -96,7 +96,7 @@ class Hangman(commands.Cog):
 		return p
 
 	@commands.command()
-	async def hangman(self, ctx):
+	async def impiccato(self, ctx):
 		"""Gioca all'impiccato con il  bot."""
 		if ctx.guild is None: #default vars in pms
 			fp = str(bundled_data_path(self) / 'words.txt')
@@ -173,11 +173,11 @@ class Hangman(commands.Cog):
 	@commands.guild_only()
 	@checks.guildowner()
 	@commands.group()
-	async def hangmanset(self, ctx):
-		"""Config options for hangman."""
+	async def impiccatoset(self, ctx):
+		"""Opzioni configurazione per impiccato."""
 		pass
 	
-	@hangmanset.group(invoke_without_command=True)
+	@impiccatoset.group(invoke_without_command=True)
 	async def wordlist(self, ctx, value: str):
 		"""
 		Change the wordlist used.
@@ -217,12 +217,12 @@ class Hangman(commands.Cog):
 		if str(v) == str(bundled_data_path(self) / 'words.txt'):
 			await ctx.send('The wordlist is set to the default list.')
 		else:
-			await ctx.send(f'The wordlist is set to `{str(v)[str(v).find("Hangman")+8:-4]}`.')
+			await ctx.send(f'The wordlist is set to `{str(v)[str(v).find("Impiccato")+8:-4]}`.')
 	
-	@hangmanset.command()
+	@impiccatoset.command()
 	async def edit(self, ctx, value: bool=None):
 		"""
-		Set if hangman messages should be one edited message or many individual messages.
+		Imposta se i messaggi di Impiccato devono essere un messaggio modificato o molti messaggi singoli.
 		
 		Defaults to True.
 		This value is server specific.

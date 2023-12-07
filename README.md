@@ -4,8 +4,9 @@ Cog Function
 
 | Nome | Stato | Descrizione (Click per descrizione)
 | --- | --- | --- |
-| infochannel | **Beta** | <details><summary>Crea dei canali per visualizzare le informazioni sul server</summary>A causa dei rate limits, l'aggiornamento avviene ogni 5 o 10 minuti</details> |
+| autoroler | **Beta** | Assegna in automatico un ruolo ai nuovi utenti. |
 | hangman | **Beta** | <details><summary>Gioca all'impiccato con il bot</summary>Divertiti con l'impiccato in italiano</details> |
+| infochannel | **Beta** | <details><summary>Crea dei canali per visualizzare le informazioni sul server</summary>A causa dei rate limits, l'aggiornamento avviene ogni 5 o 10 minuti</details> |
 
 # Installation
 ### Recommended - Built-in Downloader

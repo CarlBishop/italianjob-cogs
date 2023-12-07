@@ -1,90 +1,77 @@
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-07 11:51+0100\n"
-"PO-Revision-Date: 2023-12-07 11:51+0100\n"
-"Last-Translator: Carl Bishop <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2023-05-05 15:52+0200\n"
+"PO-Revision-Date: 2023-12-07 13:33+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Unknown\n"
 "Language: it_IT\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Loco-Source-Locale: it_IT\n"
 "Generated-By: redgettext 3.4.2\n"
-"\n"
 "X-Loco-Parser: loco_parse_po\n"
-"X-Generator: Loco https://localise.biz/"
+"X-Generator: PO File Editor https://pofile.net/free-po-editor\n"
 
 #: autoroler/autoroler.py:10
 msgid "AutoRoler"
-msgstr ""
+msgstr "AutoRoler"
 
 #: autoroler/autoroler.py:39
-msgctxt "Comandi Autorole"
 msgid "Autorole commands"
-msgstr ""
+msgstr "Comandi Autorole"
 
 #: autoroler/autoroler.py:44
-msgctxt "Aggiungi un ruolo da assegnare a tutti i nuovi utenti"
 msgid "Add a role to be assigned to all new joins"
-msgstr ""
+msgstr "Aggiungi un ruolo da assegnare ai nuovi utenti"
 
 #: autoroler/autoroler.py:47
-msgctxt "Ruolo già nell'elenco dei ruoli automatici"
 msgid "Role already in autorole list"
-msgstr ""
+msgstr "Ruolo già nella lista autorole"
 
 #: autoroler/autoroler.py:50
 msgid "{} added to autorole list"
-msgstr ""
+msgstr "{} aggiunto alla lista autorole"
 
 #: autoroler/autoroler.py:54
-msgctxt "Rimuovi ruolo dalla lista autorole"
 msgid "Remove a role from the autorole list"
-msgstr ""
+msgstr "Rimuovi ruolo dalla lista autorole"
 
 #: autoroler/autoroler.py:57
-msgctxt "Ruolo non nella lista autorole"
 msgid "Role not in autorole list"
-msgstr ""
+msgstr "Ruolo non nella lista autorole"
 
 #: autoroler/autoroler.py:60
 msgid "{} removed from autorole list"
-msgstr ""
+msgstr "{} rimosso dalla lista autorole"
 
 #: autoroler/autoroler.py:64
-msgctxt "Elenca tutti i ruoli nella lista autorole"
 msgid "List all roles in the autorole list"
-msgstr ""
+msgstr "Elenca tutti i ruoli nella lista autorole"
 
 #: autoroler/autoroler.py:67
-msgctxt "Nessun ruolo nella lista autorole"
 msgid "No roles in autorole list"
-msgstr ""
+msgstr "Nessun ruolo nella lista autorole"
 
 #: autoroler/autoroler.py:70
 msgid "Autorole list: {}"
-msgstr ""
+msgstr "Lista autorole  {}"
 
 #: autoroler/autoroler.py:74
-msgctxt "Abilita autorole"
 msgid "Enable autorole"
-msgstr ""
+msgstr "Abilita autorole"
 
 #: autoroler/autoroler.py:76
-msgctxt "AutoRoler abilitato"
 msgid "AutoRoler enabled"
-msgstr ""
+msgstr "AutoRoler abiitato"
 
 #: autoroler/autoroler.py:80
-msgctxt "Disabilita autorole"
 msgid "Disable autorole"
-msgstr ""
+msgstr "Disabilita autorole"
 
 #: autoroler/autoroler.py:82
-msgctxt "AutoRoler disabilitato"
 msgid "AutoRoler disabled"
-msgstr ""
+msgstr "AutoRoler disabilitato"

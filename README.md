@@ -2,9 +2,9 @@
 
 Cog Function
 
-| Name | Status | Description (Click to see full status)
+| Nome | Stato | Descrizione (Click per descrizione)
 | --- | --- | --- |
-| infochannel | **Beta** | <details><summary>Create a channel to display server info</summary>Due to rate limits, this does not update as often as it once did</details> |
+| infochannel | **Beta** | <details><summary>Crea dei canali per visualizzare le informazioni sul server</summary>A causa dei rate limits, l'aggiornamento avviene ogni 5 o 10 minuti</details> |
 
 # Installation
 ### Recommended - Built-in Downloader

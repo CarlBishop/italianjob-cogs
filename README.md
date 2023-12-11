@@ -7,7 +7,7 @@ Cog Function
 | autoroler | **Beta** | Assegna in automatico un ruolo ai nuovi utenti. |
 | hangman | **Beta** | <details><summary>Gioca all'impiccato con il bot</summary>Divertiti con l'impiccato in italiano</details> |
 | infochannel | **Beta** | <details><summary>Crea dei canali per visualizzare le informazioni sul server</summary>A causa dei rate limits, l'aggiornamento avviene ogni 5 o 10 minuti</details> |
-
+| Suggestion | **Beta** | <details><summary>Simple suggestion cog</summary> The cog allows users to send a suggestion in a chennel.</details> |
 # Installation
 ### Recommended - Built-in Downloader
 ```

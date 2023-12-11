@@ -3,9 +3,9 @@
         "max"
     ],
     "name": "Suggestion",
-    "install_msg": "Thanks for installing.\nif you enjoy my cog and wants to support me, you can do so from [github sponsor](<https://github.com/sponsors/ltzmax>) or [buy me a coffee](<https://www.buymeacoffee.com/ltzmax>)",
-    "description": "Simple suggestion cog that allows users to send a suggestion.",
-    "short": "Simple suggestion cog that allows users to send a suggestion.",
+    "install_msg": "Grazie per l'installazione.\nSe ti piace il mio cog e vuoi supportarmi, puoi farlo da [github sponsor](<https://github.com/sponsors/ltzmax>) o [buy me a coffee](<https://www.buymeacoffee.com/ltzmax>)",
+    "description": "Semplice ingranaggio dei suggerimenti che consente agli utenti di inviare un suggerimento.",
+    "short": "Semplice ingranaggio dei suggerimenti che consente agli utenti di inviare un suggerimento.",
     "hidden": false,
     "min_bot_version": "3.5.3",
     "tags": [

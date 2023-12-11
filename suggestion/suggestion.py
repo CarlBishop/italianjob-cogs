@@ -72,8 +72,8 @@ class Suggestion(commands.Cog):
     @commands.Cog.listener()
     async def on_message_without_command(self, message: discord.Message):
         """
-        Send a suggestion to the suggestion channel without using a command.
-        You can just type your suggestion in the suggestion channel and the bot will delete your message and build the embed with your message.
+        Invia un suggerimento al canale dei suggerimenti senza utilizzare un comando.
+        Puoi semplicemente digitare il tuo suggerimento nel canale dei suggerimenti e il bot eliminerà il tuo messaggio e creerà l'embed con il tuo messaggio.
         """
         if message.guild is None:
             return
@@ -102,11 +102,11 @@ class Suggestion(commands.Cog):
             await asyncio.sleep(0.3)
             await message.delete()
             await message.channel.send(
-                "Your suggestion must be between 3 and 2024 characters long",
+                "Il tuo suggerimento deve contenere da 3 a 2024 caratteri",
                 delete_after=10,
             )
             log.info(
-                f"Suggestion is too long or too short in {message.channel} by {message.author} ({message.author.id})"
+                f"Il suggerimento è troppo lungo o troppo breve in {message.channel} da {message.author} ({message.author.id})"
             )
             return
 
@@ -119,7 +119,7 @@ class Suggestion(commands.Cog):
             await self.config.guild(message.guild).withoutcmd.set(False)
             return
             log.info(
-                "I don't have permissions to send messages, manage messages or embed links in {channel}".format(
+                "Non dispongo delle autorizzazioni per inviare messaggi, gestire messaggi o incorporare collegamenti in {channel}".format(
                     channel=message.channel
                 )
             )
@@ -127,7 +127,7 @@ class Suggestion(commands.Cog):
         await self.config.guild(message.guild).suggestion_id.set(next_id)
         # Create an embed from the message
         embed = discord.Embed(
-            title="New Suggestion",
+            title="Nuovo suggerimento",
             description=f"**Description**:\n> {message.content}",
             color=await self.bot.get_embed_color(message.channel),
         )
@@ -145,7 +145,7 @@ class Suggestion(commands.Cog):
                 await self.config.guild(message.guild).suggest_vote.set(False)
                 return
                 log.info(
-                    "I don't have permissions to add reactions in {channel}".format(
+                    "Non ho i permessi per aggiungere reazioni in {channel}".format(
                         channel=message.channel
                     )
                 )
@@ -158,14 +158,14 @@ class Suggestion(commands.Cog):
             )
 
     async def suggest_embed(self, ctx, *, message: str):
-        """Send a suggestion to the suggestion channel."""
+        """Invia un suggerimento al canale dei suggerimenti."""
         data = await self.config.guild(ctx.guild).all()
         toggle = data["toggle"]
         channel = data["channel"]
         if toggle is False:
-            return await ctx.send("Suggestion system is disabled")
+            return await ctx.send("Il sistema di suggerimento è disabilitato")
         if channel is None:
-            return await ctx.send("Suggestion channel is not set")
+            return await ctx.send("Il canale dei suggerimenti non è impostato")
         channel = self.bot.get_channel(channel)
         if (
             not channel.permissions_for(ctx.guild.me).send_messages
@@ -174,19 +174,19 @@ class Suggestion(commands.Cog):
             await self.config.guild(ctx.guild).channel.set(None)
             return
             log.info(
-                "I don't have permissions to send messages or embed links in {channel}".format(
+                "Non ho i permessi per inviare messaggi o incorporare link in {channel}".format(
                     channel=channel
                 )
             )
         if len(message) > 2024 or len(message) < 3:
             return await ctx.send(
-                "Your suggestion must be between 3 and 2024 characters long"
+                "Il tuo suggerimento deve contenere da 3 a 2024 caratteri"
             )
-            log.info("Suggestion is too long or too short")
+            log.info("Il suggerimento è troppo lungo o troppo breve")
         next_id = data["suggestion_id"] + 1
         await self.config.guild(ctx.guild).suggestion_id.set(next_id)
         embed = discord.Embed(
-            title="New Suggestion",
+            title="Nuovo suggerimento",
             description=f"**Description**:\n> {message}",
             color=await ctx.embed_color(),
         )
@@ -206,7 +206,7 @@ class Suggestion(commands.Cog):
                 await data["suggest_vote"].set(False)
                 return
                 log.info(
-                    "I don't have permissions to add reactions in {channel}".format(
+                    "Non ho i permessi per aggiungere reazioni in {channel}".format(
                         channel=channel
                     )
                 )
@@ -222,7 +222,7 @@ class Suggestion(commands.Cog):
     @commands.guild_only()
     @commands.cooldown(1, 30, commands.BucketType.user)
     async def suggest(self, ctx, *, message: str):
-        """Send a suggestion to the suggestion channel."""
+        """Invia un suggerimento al canale dei suggerimenti."""
         if await self.config.guild(ctx.guild).allouw_without_command():
             return await ctx.send(
                 "You can't use this command while allow_without_command is enabled",
@@ -236,10 +236,10 @@ class Suggestion(commands.Cog):
     @commands.admin()
     async def approve(self, ctx, message_id: int, *, reason: Optional[str] = None):
         """
-        Approve a suggestion.
+        Approvare un suggerimento.
 
-        Must be a message id of a suggestion in the suggestion channel.
-        If the suggestion is approved, the bot will edit the embed and add a footer with the approver.
+        Deve essere un ID messaggio di un suggerimento nel canale dei suggerimenti.
+        Se il suggerimento viene approvato, il bot modificherà l'incorporamento e aggiungerà un piè di pagina con l'approvatore.
 
         Parameters
         ----------
@@ -250,18 +250,18 @@ class Suggestion(commands.Cog):
         toggle = data["toggle"]
         channel = data["channel"]
         if toggle is False:
-            return await ctx.send("Suggestion system is disabled")
+            return await ctx.send("Il sistema di suggerimento è disabilitato")
         if channel is None:
-            return await ctx.send("Suggestion channel is not set")
+            return await ctx.send("Il canale dei suggerimenti non è impostato")
         channel = self.bot.get_channel(channel)
         try:
             msg = await channel.fetch_message(message_id)
         except (discord.NotFound, discord.Forbidden, discord.HTTPException) as e:
             return await ctx.send("Something went wrong while approving the suggestion")
-            log.info(f"Some error occured while approving a suggestion: {e}")
+            log.info(f"Si è verificato un errore durante l'approvazione di un suggerimento: {e}")
         if reason is not None and len(reason) > 1024:
             return await ctx.send(
-                "Your reason must be between 0 and 1024 characters long"
+                "Il motivo deve contenere da 0 a 1024 caratteri"
             )
         if msg.embeds:
             try:
@@ -269,10 +269,10 @@ class Suggestion(commands.Cog):
             except IndexError:
                 return await ctx.send("Message not found")
                 log.info(
-                    f"{ctx.author} tried to approve a message that is not a suggestion"
+                    f"{ctx.author} ha provato ad approvare un messaggio che non è un suggerimento"
                 )
-            if embed.title != "New Suggestion":
-                return await ctx.send("This message is not a suggestion")
+            if embed.title != "Nuovo suggerimento":
+                return await ctx.send("Questo messaggio non è un suggerimento")
             embed.color = 0x00FF00
             if reason is not None:
                 embed.add_field(name="Reason:", value=f"> {reason}")
@@ -286,17 +286,17 @@ class Suggestion(commands.Cog):
                 reference=ctx.message.to_reference(fail_if_not_exists=False),
             )
         else:
-            await ctx.send("This message is not a suggestion")
+            await ctx.send("Questo messaggio non è un suggerimento")
 
     @commands.command()
     @commands.guild_only()
     @commands.admin()
     async def reject(self, ctx, message_id: int, *, reason: Optional[str] = None):
         """
-        Reject a suggestion.
+        Rifiuta un suggerimento.
 
-        Must be a message id of a suggestion in the suggestion channel.
-        If the suggestion is rejected, the bot will edit the embed and add a footer with the rejecter.
+        Deve essere un ID messaggio di un suggerimento nel canale dei suggerimenti.
+        Se il suggerimento viene rifiutato, il bot modificherà l'incorporamento e aggiungerà un piè di pagina con chi ha rifiutato.
 
         Parameters
         ----------
@@ -307,18 +307,18 @@ class Suggestion(commands.Cog):
         toggle = data["toggle"]
         channel = data["channel"]
         if toggle is False:
-            return await ctx.send("Suggestion system is disabled")
+            return await ctx.send("Il sistema di suggerimento è disabilitato")
         if channel is None:
-            return await ctx.send("Suggestion channel is not set")
+            return await ctx.send("Il canale dei suggerimenti non è impostato")
         channel = self.bot.get_channel(channel)
         try:
             msg = await channel.fetch_message(message_id)
         except (discord.NotFound, discord.Forbidden, discord.HTTPException) as e:
             return await ctx.send("Something went wrong while rejecting the suggestion")
-            log.info(f"Some error occured while rejecting a suggestion: {e}")
+            log.info(f"Si è verificato un errore durante il rifiuto di un suggerimento: {e}")
         if reason is not None and len(reason) > 1024:
             return await ctx.send(
-                "Your reason must be between 0 and 1024 characters long"
+                "Il motivo deve contenere da 0 a 1024 caratteri"
             )
         if msg.embeds:
             try:
@@ -326,14 +326,14 @@ class Suggestion(commands.Cog):
             except IndexError:
                 return await ctx.send("Message not found")
                 log.info(
-                    f"{ctx.author} tried to reject a message that is not a suggestion"
+                    f"{ctx.author} ho provato a rifiutare un messaggio che non è un suggerimento"
                 )
-            if embed.title != "New Suggestion":
-                return await ctx.send("This message is not a suggestion")
+            if embed.title != "Nuovo suggerimento":
+                return await ctx.send("Questo messaggio non è un suggerimento")
             embed.color = 0xFF0000
             if reason is not None:
                 embed.add_field(name="Reason:", value=f"> {reason}")
-            embed.set_footer(text="Rejected by {author}".format(author=ctx.author))
+            embed.set_footer(text="Rifiutato da {author}".format(author=ctx.author))
             await msg.edit(embed=embed)
             await ctx.send(
                 "Rejected suggestion #{id}".format(
@@ -343,7 +343,7 @@ class Suggestion(commands.Cog):
                 reference=ctx.message.to_reference(fail_if_not_exists=False),
             )
         else:
-            await ctx.send("This message is not a suggestion")
+            await ctx.send("Questo messaggio non è un suggerimento")
 
     @commands.group()
     @commands.guild_only()

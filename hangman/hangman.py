@@ -135,7 +135,7 @@ class Hangman(commands.Cog):
 				umsg = await self.bot.wait_for('message', check=check, timeout=60)
 			except asyncio.TimeoutError:
 				return await ctx.send(
-					f'Annullamento della selezione. Ci hai messo troppo tempo.\nLa parola er {word}.'
+					f'Annullamento della selezione. Ci hai messo troppo tempo.\nLa parola era {word}.'
 				)
 			t = umsg.content.lower()
 			if doEdit:

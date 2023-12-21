@@ -29,8 +29,8 @@ class WordListener(commands.Cog):
         help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
 
         # Aggiunge l'avatar del bot come icona dell'embed
-    if self.bot.user.avatar_url:
-        help_embed.set_thumbnail(url=self.bot.user.avatar_url)
+        if self.bot.user.avatar_url:
+            help_embed.set_thumbnail(url=self.bot.user.avatar_url)
 
         # Mostra l'help per questo comando
         await ctx.send(embed=help_embed)
@@ -47,8 +47,8 @@ class WordListener(commands.Cog):
             help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
 
             # Aggiunge l'avatar del bot come icona dell'embed
-    if self.bot.user.avatar_url:
-        help_embed.set_thumbnail(url=self.bot.user.avatar_url)
+        if self.bot.user.avatar_url:
+            help_embed.set_thumbnail(url=self.bot.user.avatar_url)
 
             await ctx.send(embed=help_embed)
 

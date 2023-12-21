@@ -14,6 +14,8 @@ class WordListener(commands.Cog):
         """Aggiunge una parola/frase da monitorare."""
         word = word.lower()
         words = await self.config.words()
+        if words is None:
+            words = []  # Inizializza words come una lista vuota se è None
         if word not in words:
             words.append(word)
             await self.config.words.set(words)

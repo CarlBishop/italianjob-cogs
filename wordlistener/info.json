@@ -1,7 +1,12 @@
 {
-    "name": "wordlistener",
-    "description": "Cog per ascoltare determinate parole/frasi e rispondere con un embed.",
-    "author": ["CarlBishop"],
-    "version": "1.0",
-    "dependencies": {}
+    "author" : ["CarlBishop"],
+    "install_msg" : "Hai installato wordlistner.",
+    "name" : "WordListener",
+    "short" : "Risponde a date parole.",
+    "requirements" : [],
+    "description" : "Gioca all'impiccato, indovinando una parola a caso dal bot. Per impostazione predefinita, quando si sceglie la parola viene utilizzato un elenco di sostantivi italiani, ma il proprietario del bot può configurare un elenco personalizzato. Esegui [p]impiccato per giocare!",
+    "tags" : ["react"],
+    "min_bot_version": "3.5.0.dev1",
+    "min_python_version": [3, 6, 0],
+    "end_user_data_statement": "This cog does not store user data."
 }

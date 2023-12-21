@@ -86,5 +86,5 @@ class WordListener(commands.Cog):
             await ctx.send("Nessuna parola/frase è attualmente monitorata.")
 
 def setup(bot):
+    bot.add_command(WordListener(bot).wordlistener_help)
     bot.add_cog(WordListener(bot))
-    bot.add_command(WordListener.wordlistener_help)

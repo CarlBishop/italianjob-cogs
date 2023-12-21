@@ -8,7 +8,7 @@ class WordListener(commands.Cog):
         self.config.register_guild(monitored_words={})  # Cambio del nome del valore 'words'
         
     async def check_word(self, message):
-        guild_words = await self.config.guild(message.guild).words()
+        guild_words = await self.config.guild(message.guild).monitored_words()
         if not guild_words:
             return False
 
@@ -43,7 +43,7 @@ class WordListener(commands.Cog):
     async def add_word(self, ctx, word: str, *, embed_data: str):
         """Aggiunge una parola/frase da monitorare con un embed associato."""
         word = word.lower()
-        async with self.config.guild(ctx.guild).words() as guild_words:
+        async with self.config.guild(ctx.guild).monitored_words() as guild_words:
             if word not in guild_words:
                 embed_dict = eval(embed_data)  # Converti i dati dell'embed in un dizionario
                 guild_words[word] = embed_dict
@@ -57,7 +57,7 @@ class WordListener(commands.Cog):
     async def remove_word(self, ctx, word: str):
         """Rimuove una parola/frase dalla lista monitorata."""
         word = word.lower()
-        async with self.config.guild(ctx.guild).words() as guild_words:
+        async with self.config.guild(ctx.guild).monitored_words() as guild_words:
             if word in guild_words:
                 del guild_words[word]
                 await ctx.send(f"La parola '{word}' è stata rimossa dalla lista di parole monitorate.")
@@ -69,7 +69,7 @@ class WordListener(commands.Cog):
     @commands.admin()
     async def list_words(self, ctx):
         """Mostra la lista delle parole/frasi monitorate."""
-        guild_words = await self.config.guild(ctx.guild).words()
+        guild_words = await self.config.guild(ctx.guild).monitored_words()
         if guild_words:
             word_list = "\n".join(guild_words.keys())
             await ctx.send(f"Parole/frasi monitorate:\n{word_list}")

@@ -21,10 +21,15 @@ class WordListener(commands.Cog):
     async def wordlistener_help(self, ctx):
         """Comando di aiuto per il cog WordListener."""
         help_embed = discord.Embed(title="Aiuto per il WordListener",
-                                   description="Ecco i comandi disponibili per il WordListener cog:")
-        help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.Esempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
+                                   description="Ecco i comandi disponibili per il WordListener cog:",
+                                   color=discord.Color.red())  # Imposta il colore dell'embed a rosso
+        
+        help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.\nEsempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
         help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")
         help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
+
+        # Aggiunge l'avatar del bot come icona dell'embed
+        help_embed.set_thumbnail(url=self.bot.user.avatar_url)
 
         # Mostra l'help per questo comando
         await ctx.send(embed=help_embed)
@@ -33,10 +38,15 @@ class WordListener(commands.Cog):
     async def wordlistener_help_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             help_embed = discord.Embed(title="Aiuto per il WordListener",
-                                       description="Ecco i comandi disponibili per il WordListener cog:")
+                                       description="Ecco i comandi disponibili per il WordListener cog:",
+                                       color=discord.Color.red())  # Imposta il colore dell'embed a rosso
+
             help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.\nEsempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
             help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")
             help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
+
+            # Aggiunge l'avatar del bot come icona dell'embed
+            help_embed.set_thumbnail(url=self.bot.user.avatar_url)
 
             await ctx.send(embed=help_embed)
 

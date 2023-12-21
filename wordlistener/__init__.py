@@ -1,4 +1,4 @@
-from .wordlistener import WordListener
+from .word_listener import WordListener
 
 __red_end_user_data_statement__ = 'This cog does not store user data.'
 

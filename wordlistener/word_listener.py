@@ -87,4 +87,3 @@ class WordListener(commands.Cog):
 
 def setup(bot):
     bot.add_cog(WordListener(bot))
-    bot.add_command(commands.Command(name="wordlistener")(WordListener(bot).wordlistener_help))

@@ -1,7 +1,7 @@
 {
     "name": "wordlistener",
     "description": "Cog per ascoltare determinate parole/frasi e rispondere con un embed.",
-    "author": "CarlBishop",
+    "author": ["CarlBishop"],
     "version": "1.0",
     "dependencies": {}
 }

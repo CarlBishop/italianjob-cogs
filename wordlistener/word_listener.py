@@ -25,7 +25,7 @@ class WordListener(commands.Cog):
             return
 
         if await self.check_word(message):
-            embed = discord.Embed(title="Parola Monitorata Trovata", description=message.content)
+            embed = discord.Embed(title="Parola Monitorata Trovata", description=f"Trovata parola: {message.content}. Ora scrivo del testo")
             author = message.author
             if isinstance(author, discord.Member):
                 if author.avatar:

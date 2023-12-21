@@ -6,7 +6,7 @@ class WordListener(commands.Cog):
         self.bot = bot
         self.config = Config.get_conf(self, identifier=1234567890, force_registration=True)
         self.config.register_guild(words={})
-
+        
     async def check_word(self, message):
         guild_words = await self.config.guild(message.guild).words()
         if not guild_words:

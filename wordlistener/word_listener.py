@@ -36,16 +36,23 @@ class WordListener(commands.Cog):
                     break
             
             if matched_word:
-                embed = discord.Embed(title=f"Parola '{matched_word}' Trovata", description=f"Trovata parola: {matched_word}. Ora scrivo del testo")
-                author = message.author
-                if isinstance(author, discord.Member):
-                    if author.avatar:
-                        embed.set_footer(text=f"Autore: {author.display_name}", icon_url=author.avatar.url)
+                responses = {
+                    'baciccio': discord.Embed(title="Parola Monitorata Trovata", description=f"Trovata parola: {matched_word}. Ora scrivo del testo"),
+                    'ciccio': discord.Embed(title="Risposta per Parola 2", description="Descrizione per la Parola 2"),
+                    # Aggiungi altre risposte per parole aggiuntive
+                }
+                
+                if matched_word in responses:
+                    embed = responses[matched_word]
+                    author = message.author
+                    if isinstance(author, discord.Member):
+                        if author.avatar:
+                            embed.set_footer(text=f"Autore: {author.display_name}", icon_url=author.avatar.url)
+                        else:
+                            embed.set_footer(text=f"Autore: {author.display_name}")
                     else:
                         embed.set_footer(text=f"Autore: {author.display_name}")
-                else:
-                    embed.set_footer(text=f"Autore: {author.display_name}")
-                await message.channel.send(embed=embed)
+                    await message.channel.send(embed=embed)
 
     @commands.command()
     @commands.guild_only()

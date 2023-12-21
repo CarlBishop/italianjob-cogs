@@ -10,8 +10,12 @@ class WordListener(commands.Cog):
         words = await self.config.words()
         if words is None:
             return False
+
+        print(f"Words in list: {words}")  # Stampiamo la lista delle parole per debug
+
         for word in words:
             if word.lower() in message.content.lower():
+                print(f"Match found for word: {word}")  # Stampiamo il match per debug
                 return True
         return False
 

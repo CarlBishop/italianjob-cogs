@@ -23,7 +23,11 @@ class WordListener(commands.Cog):
         help_embed = discord.Embed(title="Aiuto per il WordListener",
                                    description="Ecco i comandi disponibili per il WordListener cog:",
                                    color=discord.Color.red())  # Imposta il colore dell'embed a rosso
-        
+
+        if self.bot.user.avatar:
+            avatar_url = self.bot.user.avatar_url_as(format="png")
+            help_embed.set_thumbnail(url=avatar_url)
+
         help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.Esempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
         help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")
         help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
@@ -37,6 +41,10 @@ class WordListener(commands.Cog):
             help_embed = discord.Embed(title="Aiuto per il WordListener",
                                        description="Ecco i comandi disponibili per il WordListener cog:",
                                        color=discord.Color.red())  # Imposta il colore dell'embed a rosso
+
+            if self.bot.user.avatar:
+                avatar_url = self.bot.user.avatar_url_as(format="png")
+                help_embed.set_thumbnail(url=avatar_url)
 
             help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.Esempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
             help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")

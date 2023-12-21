@@ -5,7 +5,7 @@ class WordListener(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.config = Config.get_conf(self, identifier=1234567890, force_registration=True)
-        self.config.register_guild(words={})
+        self.config.register_guild(monitored_words={})  # Cambio del nome del valore 'words'
         
     async def check_word(self, message):
         guild_words = await self.config.guild(message.guild).words()

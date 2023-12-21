@@ -26,7 +26,14 @@ class WordListener(commands.Cog):
 
         if await self.check_word(message):
             embed = discord.Embed(title="Parola Monitorata Trovata", description=message.content)
-            embed.set_footer(text=f"Autore: {message.author.display_name}", icon_url=message.author.avatar_url_as())
+            author = message.author
+            if isinstance(author, discord.Member):
+                if author.guild.avatar:
+                    embed.set_footer(text=f"Autore: {author.display_name}", icon_url=author.guild.avatar.url)
+                else:
+                    embed.set_footer(text=f"Autore: {author.display_name}")
+            else:
+                embed.set_footer(text=f"Autore: {author.display_name}")
             await message.channel.send(embed=embed)
 
     @commands.command()

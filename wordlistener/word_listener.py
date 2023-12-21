@@ -5,6 +5,7 @@ class WordListener(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+        self.config = Config.get_conf(self, identifier='word_listener_config')
 
     @commands.command()
     @commands.guild_only()

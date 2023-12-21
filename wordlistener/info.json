@@ -1,10 +1,10 @@
 {
     "author" : ["CarlBishop"],
-    "install_msg" : "Hai installato wordlistner.",
+    "install_msg" : "Hai installato wordlistner. usa [p]wordlistner per help",
     "name" : "WordListener",
     "short" : "Risponde a date parole.",
     "requirements" : [],
-    "description" : "Gioca all'impiccato, indovinando una parola a caso dal bot. Per impostazione predefinita, quando si sceglie la parola viene utilizzato un elenco di sostantivi italiani, ma il proprietario del bot può configurare un elenco personalizzato. Esegui [p]impiccato per giocare!",
+    "description" : "Reagisce a parole definite con un messaggio configurabile",
     "tags" : ["react"],
     "min_bot_version": "3.5.0.dev1",
     "min_python_version": [3, 6, 0],

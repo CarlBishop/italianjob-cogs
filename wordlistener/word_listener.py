@@ -24,7 +24,7 @@ class WordListener(commands.Cog):
                                    description="Ecco i comandi disponibili per il WordListener cog:",
                                    color=discord.Color.red())  # Imposta il colore dell'embed a rosso
         
-        help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.\nEsempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
+        help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.Esempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
         help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")
         help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
 
@@ -41,7 +41,7 @@ class WordListener(commands.Cog):
                                        description="Ecco i comandi disponibili per il WordListener cog:",
                                        color=discord.Color.red())  # Imposta il colore dell'embed a rosso
 
-            help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.\nEsempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
+            help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.Esempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
             help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")
             help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
 

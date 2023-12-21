@@ -1,11 +1,29 @@
 from redbot.core import Config, commands
+import discord
 
 class WordListener(commands.Cog):
-    """Cog per ascoltare determinate parole/frasi e rispondere con un embed."""
-
     def __init__(self, bot):
         self.bot = bot
         self.config = Config.get_conf(self, identifier='word_listener_config')
+
+    async def check_word(self, message):
+        words = await self.config.words()
+        if words is None:
+            return False
+        for word in words:
+            if word.lower() in message.content.lower():
+                return True
+        return False
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if message.author.bot:
+            return
+
+        if await self.check_word(message):
+            embed = discord.Embed(title="Parola Monitorata Trovata", description=message.content)
+            embed.set_footer(text=f"Autore: {message.author.display_name}", icon_url=message.author.avatar_url)
+            await message.channel.send(embed=embed)
 
     @commands.command()
     @commands.guild_only()

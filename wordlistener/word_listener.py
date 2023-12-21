@@ -1,4 +1,4 @@
-from redbot.core import commands
+from redbot.core import Config, commands
 
 class WordListener(commands.Cog):
     """Cog per ascoltare determinate parole/frasi e rispondere con un embed."""

@@ -52,7 +52,6 @@ class WordListener(commands.Cog):
 
             await ctx.send(embed=help_embed)
 
-
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author.bot:

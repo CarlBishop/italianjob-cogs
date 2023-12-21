@@ -25,12 +25,12 @@ class WordListener(commands.Cog):
                                    color=discord.Color.red())  # Imposta il colore dell'embed a rosso
 
         if self.bot.user.avatar:
-            avatar_url = self.bot.user.avatar_url_as(format="png")
+            avatar_url = self.bot.user.avatar.url
             help_embed.set_thumbnail(url=avatar_url)
 
-        help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.Esempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
-        help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")
-        help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
+            help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.Esempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
+            help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")
+            help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
 
         # Mostra l'help per questo comando
         await ctx.send(embed=help_embed)
@@ -42,9 +42,9 @@ class WordListener(commands.Cog):
                                        description="Ecco i comandi disponibili per il WordListener cog:",
                                        color=discord.Color.red())  # Imposta il colore dell'embed a rosso
 
-            if self.bot.user.avatar:
-                avatar_url = self.bot.user.avatar_url_as(format="png")
-                help_embed.set_thumbnail(url=avatar_url)
+        if self.bot.user.avatar:
+            avatar_url = self.bot.user.avatar.url
+            help_embed.set_thumbnail(url=avatar_url)
 
             help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.Esempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
             help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")

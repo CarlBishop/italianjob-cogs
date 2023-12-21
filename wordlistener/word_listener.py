@@ -28,10 +28,6 @@ class WordListener(commands.Cog):
         help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")
         help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
 
-        # Aggiunge l'avatar del bot come icona dell'embed
-        if self.bot.user.avatar_url:
-            help_embed.set_thumbnail(url=self.bot.user.avatar_url)
-
         # Mostra l'help per questo comando
         await ctx.send(embed=help_embed)
 
@@ -45,10 +41,6 @@ class WordListener(commands.Cog):
             help_embed.add_field(name="add_word", value='Aggiunge una parola/frase da monitorare.Esempio: `add_word parola {"title": "Titolo", "description": "Descrizione"}`')
             help_embed.add_field(name="remove_word", value="Rimuove una parola/frase dalla lista monitorata.")
             help_embed.add_field(name="list_words", value="Mostra la lista delle parole/frasi monitorate.")
-
-            # Aggiunge l'avatar del bot come icona dell'embed
-        if self.bot.user.avatar_url:
-            help_embed.set_thumbnail(url=self.bot.user.avatar_url)
 
             await ctx.send(embed=help_embed)
 
